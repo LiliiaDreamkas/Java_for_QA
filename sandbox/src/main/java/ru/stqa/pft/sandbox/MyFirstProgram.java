@@ -8,7 +8,7 @@ public class MyFirstProgram{
 
 		Point p1 = new Point(2, 3);
 		Point p2 = new Point(4, 5);
-		/*Вызов функции, не связанной с классом*/
+		/*Вызов функции, не связанной с объектом*/
 		System.out.println("Расстояние между точками = " +distance(p1, p2));
 		/*Вызов метода, связанного с объектом*/
 		System.out.println("Расстояние между точками = " + p1.distance(p2));
