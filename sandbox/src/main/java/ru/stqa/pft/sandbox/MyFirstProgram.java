@@ -3,6 +3,20 @@ package ru.stqa.pft.sandbox;
 public class MyFirstProgram{
 
 	public static void main(String[] args){
+
+//		lecture();
+
+		Point p1 = new Point(2, 3);
+		Point p2 = new Point(4, 5);
+		/*Вызов функции, не связанной с классом*/
+		System.out.println("Расстояние между точками = " +distance(p1, p2));
+		/*Вызов метода, связанного с объектом*/
+		System.out.println("Расстояние между точками = " + p1.distance(p2));
+
+	}
+
+	/*Лекция*/
+	public static void lecture() {
 		hello("world");
 		hello("user");
 		hello("Liliia");
@@ -12,10 +26,6 @@ public class MyFirstProgram{
 
 		Rectangle r = new Rectangle(4, 6);
 		System.out.println("Площадь прямоугольника со сторонами " + r.a + " и " + r.b + " = " + r.area());
-		
-		Point p1 = new Point(2, 3);
-		Point p2 = new Point(4, 5);
-		System.out.println("Расстояние между точками = " +distance(p1, p2));
 	}
 
 	public static void hello(String somebody){
