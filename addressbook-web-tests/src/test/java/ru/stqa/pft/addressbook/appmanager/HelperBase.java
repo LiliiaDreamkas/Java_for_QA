@@ -33,4 +33,10 @@ public class HelperBase {
   protected void getPage(String url) {
     wd.get(url);
   }
+
+  protected void select(By locator) {
+    if (!wd.findElement(locator).isSelected()) {
+      click(locator);
+    }
+  }
 }
