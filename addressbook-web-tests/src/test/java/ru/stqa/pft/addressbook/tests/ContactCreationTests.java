@@ -12,7 +12,7 @@ public class ContactCreationTests extends TestBase{
 
   @Test
   public void testContactCreation() {
-    app.getNavigationHelper().gotoHomePage();
+    app.goTo().gotoHomePage();
     List<ContactData> before = app.getContactHelper().getContactList();
     ContactData contact = new ContactData("TestFirstName", "TestLastName",
             "Test address", "+7(000) 000-00-00", "+7 812 495-00-00",
