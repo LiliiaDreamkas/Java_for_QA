@@ -14,18 +14,18 @@ public class ContactModificationTests extends TestBase {
   public void ensurePreconditions() {
     app.goTo().homePage();
     if(app.contact().list().size() == 0) {
-      app.contact().create(new ContactData("TestFName", "TestLastName",
-              "Test address", "+7(000) 000-00-00", "+7 812 495-00-00",
-              "+7 812 311-00-00", "testEmail@gmail.com", "test1"));
+      app.contact().create(new ContactData().withFirstName("TestFirstName").withLastName("TestLastName").withAddress("Test address")
+              .withMobilePhone("+7(000) 000-00-00").withHomePhone("+7 812 495-00-00").withWorkPhone("+7 812 311-00-00")
+              .withEmail("testEmail@gmail.com").withGroup("test1"));
     }
   }
 
   @Test
   public void testContactModification() {
     List<ContactData> before = app.contact().list();
-    ContactData contact = new ContactData("TestFName", "TestLastName",
-            "Test address", "+7(000) 000-00-00", "+7 812 495-00-00",
-            "+7 812 311-00-00", "testEmail@gmail.com", null);
+    ContactData contact = new ContactData().withFirstName("TestFirstName").withLastName("TestLastName").withAddress("Test address")
+            .withMobilePhone("+7(000) 000-00-00").withHomePhone("+7 812 495-00-00").withWorkPhone("+7 812 311-00-00")
+            .withEmail("testEmail@gmail.com");
     int index = before.size() - 1;
     app.contact().modify(contact, index);
     List<ContactData> after = app.contact().list();

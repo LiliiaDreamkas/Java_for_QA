@@ -101,7 +101,7 @@ public class ContactHelper extends HelperBase {
 //      int id2 = Integer.parseInt(columns.get(0).findElement(By.name("selected[]")).getAttribute("id"));  Второй способ достать id
       String lastName = columns.get(1).getText();
       String firstName = columns.get(2).getText();
-      ContactData contact = new ContactData(id, firstName, lastName, null, null, null, null, null, null);
+      ContactData contact = new ContactData().withId(id).withFirstName(firstName).withLastName(lastName);
       contacts.add(contact);
     }
     return contacts;
