@@ -8,6 +8,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
+import ru.stqa.pft.addressbook.model.Contacts;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -96,13 +97,12 @@ public class ContactHelper extends HelperBase {
     return  isElementPresent(By.name("selected[]"));
   }
 
-  public Set<ContactData> all() {
-    Set<ContactData> contacts = new HashSet<ContactData>();
+  public Contacts all() {
+    Contacts contacts = new Contacts();
     List<WebElement> elements = wd.findElements(By.name("entry"));
     for (WebElement element : elements) {
       List<WebElement> columns = element.findElements(By.tagName("td"));
       int id = Integer.parseInt(element.findElement(By.name("selected[]")).getAttribute("id"));
-//      int id2 = Integer.parseInt(columns.get(0).findElement(By.name("selected[]")).getAttribute("id"));  Второй способ достать id
       String lastName = columns.get(1).getText();
       String firstName = columns.get(2).getText();
       ContactData contact = new ContactData().withId(id).withFirstName(firstName).withLastName(lastName);
