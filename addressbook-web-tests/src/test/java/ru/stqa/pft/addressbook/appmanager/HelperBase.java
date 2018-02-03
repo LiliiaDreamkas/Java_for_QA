@@ -55,4 +55,10 @@ public class HelperBase {
       return false;
     }
   }
+
+  public void homePage() {
+    if (isElementPresent(By.id("maintable"))) {
+      return;
+    }
+    click(By.linkText("home")); }
 }
