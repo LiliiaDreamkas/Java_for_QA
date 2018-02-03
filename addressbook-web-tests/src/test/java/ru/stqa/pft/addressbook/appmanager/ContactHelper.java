@@ -40,10 +40,9 @@ public class ContactHelper extends HelperBase {
   }
 
   public void gotoContactModificationForm(int index) {
-    if (index < 2) {
-      index = 2;
-    }
-    click(By.xpath("//table[@id='maintable']/tbody/tr[" + index +"]/td[8]/a/img"));
+    wd.findElements(By.cssSelector("img[title='Edit']")).get(index).click();
+//    wd.findElements(By.cssSelector("a[href=edit.php?id='" + index + "']"));
+//    click(By.xpath("//table[@id='maintable']/tbody/tr[" + index +"]/td[8]/a/img"));
   }
 
   public void selectContact(int index) {
