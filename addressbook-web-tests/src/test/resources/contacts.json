@@ -1,0 +1,29 @@
+[
+  {
+    "firstName": "Name 0",
+    "lastName": "Surname 0",
+    "address": "Address 0",
+    "mobilePhone": "+7(000) 000-00-00",
+    "homePhone": "+7 812 495-00-00",
+    "workPhone": "+7 812 311-00-00",
+    "email": "testEmail0@gmail.com"
+  },
+  {
+    "firstName": "Name 1",
+    "lastName": "Surname 1",
+    "address": "Address 1",
+    "mobilePhone": "+7(000) 000-00-01",
+    "homePhone": "+7 812 495-00-01",
+    "workPhone": "+7 812 311-00-01",
+    "email": "testEmail1@gmail.com"
+  },
+  {
+    "firstName": "Name 2",
+    "lastName": "Surname 2",
+    "address": "Address 2",
+    "mobilePhone": "+7(000) 000-00-02",
+    "homePhone": "+7 812 495-00-02",
+    "workPhone": "+7 812 311-00-02",
+    "email": "testEmail2@gmail.com"
+  }
+]
