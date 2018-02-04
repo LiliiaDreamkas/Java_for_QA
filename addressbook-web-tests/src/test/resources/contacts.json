@@ -6,7 +6,8 @@
     "mobilePhone": "+7(000) 000-00-00",
     "homePhone": "+7 812 495-00-00",
     "workPhone": "+7 812 311-00-00",
-    "email": "testEmail0@gmail.com"
+    "email": "testEmail0@gmail.com",
+    "group": "test 1"
   },
   {
     "firstName": "Name 1",
@@ -15,7 +16,8 @@
     "mobilePhone": "+7(000) 000-00-01",
     "homePhone": "+7 812 495-00-01",
     "workPhone": "+7 812 311-00-01",
-    "email": "testEmail1@gmail.com"
+    "email": "testEmail1@gmail.com",
+    "group": "test 1"
   },
   {
     "firstName": "Name 2",
@@ -24,6 +26,7 @@
     "mobilePhone": "+7(000) 000-00-02",
     "homePhone": "+7 812 495-00-02",
     "workPhone": "+7 812 311-00-02",
-    "email": "testEmail2@gmail.com"
+    "email": "testEmail2@gmail.com",
+    "group": "test 1"
   }
 ]
