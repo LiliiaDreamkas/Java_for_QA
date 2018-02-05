@@ -1,10 +1,13 @@
 package ru.stqa.pft.addressbook.model;
 
 import com.google.gson.annotations.Expose;
+import org.hibernate.annotations.ManyToAny;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.io.File;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "addressbook")
@@ -44,9 +47,6 @@ public class ContactData {
   @Column(name = "email3")
   @Type(type = "text")
   private String email3;
-  @Expose
-  @Transient
-  private String group;
   @Transient
   private String allPhones;
   @Transient
@@ -55,6 +55,15 @@ public class ContactData {
   @Column(name = "photo")
   @Type(type = "text")
   private String photo;
+
+  @ManyToMany(fetch = FetchType.EAGER) // из базы данных за один заход будет извлекаться больше информации
+  @JoinTable(name = "address_in_groups",
+          joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "group_id"))
+  private Set<GroupData> groups = new HashSet<GroupData>();
+
+  public Groups getGroups() {
+    return new Groups(groups);
+  }
 
   public File getPhoto() { return new File(photo); }
 
@@ -133,11 +142,6 @@ public class ContactData {
     return this;
   }
 
-  public ContactData withGroup(String group) {
-    this.group = group;
-    return this;
-  }
-
   public int getId() {
     return id;
   }
@@ -176,10 +180,6 @@ public class ContactData {
 
   public String getEmail3() {
     return email3;
-  }
-
-  public String getGroup() {
-    return group;
   }
 
   @Override
@@ -226,5 +226,10 @@ public class ContactData {
     result = 31 * result + (workPhone != null ? workPhone.hashCode() : 0);
     result = 31 * result + (email != null ? email.hashCode() : 0);
     return result;
+  }
+
+  public ContactData inGroup(GroupData group) {
+    groups.add(group);
+    return this;
   }
 }

@@ -53,7 +53,7 @@ public class ContactDataGenerator {
       contacts.add(new ContactData().withFirstName(String.format("Name %s", i)).withLastName(String.format("Surname %s", i))
               .withAddress(String.format("Address %s", i)).withHomePhone(String.format("+7 812 495-00-0%s", i))
               .withMobilePhone(String.format("+7(000) 000-00-0%s", i)).withWorkPhone(String.format("+7 812 311-00-0%s", i))
-              .withEmail(String.format("testEmail%s@gmail.com", i)).withGroup("test 1").withPhoto(new File("src/test/resources/qa.png")));
+              .withEmail(String.format("testEmail%s@gmail.com", i)).withPhoto(new File("src/test/resources/qa.png")));
     }
     return contacts;
   }
