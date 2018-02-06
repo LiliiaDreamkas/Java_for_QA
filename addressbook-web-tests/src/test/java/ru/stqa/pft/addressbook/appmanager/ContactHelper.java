@@ -1,20 +1,15 @@
 package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
 import ru.stqa.pft.addressbook.model.GroupData;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class ContactHelper extends HelperBase {
 
@@ -78,8 +73,8 @@ public class ContactHelper extends HelperBase {
 
   public void gotoContactCreationPage() { click(By.linkText("add new")); }
 
-  public void selectGroupForContacts(int index){
-    new Select(wd.findElement(By.name("to_group"))).selectByValue(Integer.toString(index));
+  public void selectGroupForContacts(int index, String selectionName){
+    new Select(wd.findElement(By.name(selectionName))).selectByValue(Integer.toString(index));
   }
 
   public void create(ContactData contact) {
@@ -108,7 +103,7 @@ public class ContactHelper extends HelperBase {
 
   public void addToGroup (ContactData contact, GroupData group) {
     selectContactById(contact.getId());
-    selectGroupForContacts(group.getId());
+    selectGroupForContacts(group.getId(), "to_group");
     addSelectedToGroup();
   }
 
@@ -166,6 +161,14 @@ public class ContactHelper extends HelperBase {
     return new ContactData().withId(contact.getId()).withFirstName(firstName).withLastName(lastName)
             .withHomePhone(home).withMobilePhone(mobile).withWorkPhone(work).withEmail(email)
             .withEmail2(email2).withEmail3(email3).withAddress(address);
+  }
+
+  public void removeFromGroup(GroupData group, ContactData contact) {
+    homePage();
+    selectGroupForContacts(group.getId(), "group");
+    selectContactById(contact.getId());
+    click(By.name("remove"));
+    homePage();
   }
 
 //  private void initContactModificationByID(int id) {
