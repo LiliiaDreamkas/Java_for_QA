@@ -31,6 +31,7 @@ public class PointTests {
   }
 
   public static void testFunction(double x1, double y1, double x2, double y2, double result) {
+    //Запуск сборки
     Point p1 = new Point(x1, y1);
     Point p2 = new Point(x2, y2);
     double distance = p1.distance(p2);
