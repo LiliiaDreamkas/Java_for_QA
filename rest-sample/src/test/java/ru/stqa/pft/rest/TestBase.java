@@ -48,6 +48,8 @@ public class TestBase {
     String json = getExecutor().execute(Request.Get(String.format("http://demo.bugify.com/api/issues/%s.json", issueId)))
             .returnContent().asString();
     JsonElement parsed = new JsonParser().parse(json);
-    return parsed.getAsJsonObject().get("state_name").getAsString();
+    JsonArray array = parsed.getAsJsonObject().get("issues").getAsJsonArray();
+//    JsonElement settings = array.get(array.size() - 1);
+    return array.get(0).getAsJsonObject().get("state_name").getAsString();
   }
 }
